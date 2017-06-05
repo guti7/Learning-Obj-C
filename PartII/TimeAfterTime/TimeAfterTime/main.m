@@ -52,6 +52,13 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"This is day %lu of the month.", currentDay);
         
+        ///: Nesting Message Sends
+        /// Message sens can be 'nested'.
+        // Find the number of seconds since the start of 1970
+        double secs = [[NSDate date] timeIntervalSince1970];
+        NSLog(@"It has been %f secs since 1970", secs);
+        
+        
     }
     return 0;
 }
