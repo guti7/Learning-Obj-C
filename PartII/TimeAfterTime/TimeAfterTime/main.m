@@ -11,7 +11,6 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        //NSLog(@"Hello, World!");
         NSDate *now = [NSDate date]; // `now` is a pointer to the location of the newly initialized NSDate instance.
         
         // [NSDate date] is a 'message send' and returns the address to the instance
@@ -58,7 +57,21 @@ int main(int argc, const char * argv[]) {
         double secs = [[NSDate date] timeIntervalSince1970];
         NSLog(@"It has been %f secs since 1970", secs);
         
+        ///: `alloc` and `init`
+        NSDate *newNow = [[NSDate alloc] init];
+        /// `date` is a convenience method that does initialization with minimal code
         
+        ///: Sending messages to nil, the pointer to no object.
+        /// Use `nil` when referring to the value of an empty pointer declared as pointing to an Objective-C object type. Use `NULL` when referring to any other pointer, such as to a struct.
+        // check for non-nil-ness before accessing an object
+        if (newNow !=nil ) {
+            NSString *description = [newNow description];
+            NSLog(@"newNow is: %@", description);
+        }
+        
+        ///: use of `id`. When you need to creat a pointer without knowing the kind of object the pointer will refer to.
+        id delegate; // you don't need the asterisk, `id` already implies it.
+    
     }
     return 0;
 }
