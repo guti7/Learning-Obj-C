@@ -36,7 +36,22 @@ int main(int argc, const char * argv[]) {
         //NSDate *testNow = [now date];
         /// NSDate has no instance method whose name matches the date selector
         /// "No visible @interface for `NSDate` declares the selector `date`"
-
+        
+        ///: Message with one argument
+        NSDate *later = [now dateByAddingTimeInterval:100000];
+        NSLog(@"In 100,000 seconds it will be %@", later);
+        
+        ///: Message with multiple arguments
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSLog(@"My calendar is %@", [calendar calendarIdentifier]);
+        
+        //: Get the day of the month - returns a value so use type variables.
+        NSUInteger currentDay = [calendar ordinalityOfUnit:NSCalendarUnitDay
+                                                    inUnit:NSCalendarUnitMonth
+                                                   forDate:now];
+        
+        NSLog(@"This is day %lu of the month.", currentDay);
+        
     }
     return 0;
 }
