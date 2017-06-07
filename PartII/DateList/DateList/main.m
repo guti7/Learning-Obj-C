@@ -22,11 +22,19 @@ int main(int argc, const char * argv[]) {
         NSDate *yesterday = [now dateByAddingTimeInterval: -oneDayInterval];
         
         // Create an array containing all three NSDate
-        NSArray *dateList = @[now, tomorrow, yesterday];  // creating instance with literal syntax(No explicit message send needed).
-        
+        NSArray *dateList = @[yesterday, now, tomorrow];  // creating instance with literal syntax(No explicit message send needed).
         /// Instances of `NSArray` are *immutable*.
         
+        /// Accessing arrays:
+        // Access and print two items in the array
+        NSLog(@"The first date is %@", dateList[0]);
+        NSLog(@"The third date is %@", dateList[2]);
         
+        // Item count
+        NSLog(@"There are %lu dates.", [dateList count]); // count returns a NSUInteger type
+        
+        /// If you ask for indeces beyond the array range you will get a **out-of-range error** that will crash the program.
+        //NSLog(@"The fourth date is %@", dateList[3]); // crash
     }
     return 0;
 }
