@@ -75,6 +75,18 @@ int main(int argc, const char * argv[]) {
         [specialDates removeObjectAtIndex: 1];
         NSLog(@"`specialDates` is: %@", specialDates);
         NSLog(@"The first date is: %@", specialDates[0]);
+        
+        
+        ///: Old-style array methods
+        // Using `arrayWithObjects:` to create instances of `NSArray`
+        NSArray *additionalDates = [NSArray arrayWithObjects: tomorrow, now, yesterday, nil];
+        // notice the `nil` terminating list, the program might crash if you leave it out (at least giving you some warnings).
+        
+        // before subscripting method to access items, `objectAtIndex:` was used
+        NSLog(@"Which date? This date: %@", [additionalDates objectAtIndex:2]);
+        
+        ///: Which methods you use to create and access items in an array is up to your coding style, but some benefits over subscripting is readability.
+        
     }
     return 0;
 }
