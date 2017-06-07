@@ -35,6 +35,21 @@ int main(int argc, const char * argv[]) {
         
         /// If you ask for indeces beyond the array range you will get a **out-of-range error** that will crash the program.
         //NSLog(@"The fourth date is %@", dateList[3]); // crash
+        
+        
+        ///: Iterating over arrays
+        // Iterate over the array with traditional `for` loop
+        NSLog(@"Iterate over array:\n");
+        NSUInteger dateCount = [dateList count];
+        for (int i = 0; i < dateCount; i++) {
+            NSDate *date = dateList[i];
+            NSLog(@"Here is a date: %@", date);
+        }
+        
+        // Itereation using fast enumeration
+        for (NSDate *date in dateList) {
+            NSLog(@"Once more, a date: %@", date);
+        }
     }
     return 0;
 }
