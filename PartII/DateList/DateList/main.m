@@ -18,12 +18,13 @@ int main(int argc, const char * argv[]) {
         NSTimeInterval oneDayInterval = 24.0 * 60.0 * 60.0;
         
         NSDate *now = [NSDate date];
-        NSDate *tomorrow = [now dateByAddingTimeInterval:oneDayInterval];
+        NSDate *tomorrow = [now dateByAddingTimeInterval: oneDayInterval];
         NSDate *yesterday = [now dateByAddingTimeInterval: -oneDayInterval];
         
         // Create an array containing all three NSDate
         NSArray *dateList = @[yesterday, now, tomorrow];  // creating instance with literal syntax(No explicit message send needed).
-        /// Instances of `NSArray` are *immutable*.
+        /// Instances of `NSArray` are **immutable**.
+        
         
         /// Accessing arrays:
         // Access and print two items in the array
@@ -50,6 +51,30 @@ int main(int argc, const char * argv[]) {
         for (NSDate *date in dateList) {
             NSLog(@"Once more, a date: %@", date);
         }
+        
+        
+        /// : Using `NSMutableArray` - same as `NSArray`, except you can add, remove, and reorder pointers.
+        
+        // create an empty mutable array
+        NSMutableArray *specialDates = [NSMutableArray array];
+        //NSMutableArray *specialDates = [[NSMutableArray alloc] init]; // same result
+        
+        // Add some dates to the `specialDates` array
+        [specialDates addObject: now]; // adds object to the end of list (append)
+        [specialDates addObject: tomorrow];
+        
+        // Add `yesterday` to the beginning of `specialDates`
+        [specialDates insertObject: yesterday atIndex: 0]; // insert object at specified index(shifting remaining items)
+        
+        // Iterate over `specialDates` mutable array
+        for (NSDate *date in specialDates) {
+            NSLog(@"Dates in mutable array: %@", date); // Cannot modify array when using fast enumeration
+        }
+        
+        // Remove `now` from existance in `specialDates`
+        [specialDates removeObjectAtIndex: 1];
+        NSLog(@"`specialDates` is: %@", specialDates);
+        NSLog(@"The first date is: %@", specialDates[0]);
     }
     return 0;
 }
