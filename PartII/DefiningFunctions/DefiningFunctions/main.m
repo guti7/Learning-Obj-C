@@ -7,20 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+
 int * myFunction() {
     static int var = 8;
     return &var;
 }
 
-NSMutableArray *returnArray() {
+NSString *returnString(NSString *string) {
+    return [NSString stringWithString:string];
+}
+
+NSMutableArray *returnArray(NSString *string) {
     NSMutableArray *array = [NSMutableArray array];
-    [array addObject: @"first object"];
+    [array addObject: @"first string"];
+    
+    // test `returnString`
+    NSString *oneString = returnString(string);
+    [array addObject: oneString];
     return array;
 }
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSMutableArray *array = returnArray();
+        NSMutableArray *array = returnArray(@"the passed String");
         NSLog(@"%@", array);
     }
     return 0;
