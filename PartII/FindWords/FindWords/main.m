@@ -44,6 +44,21 @@ int main(int argc, const char * argv[]) {
         // words list
         NSArray *words = wordsArrayFromFilepath(wordsFilePath);
         
+        // Find words in proper names that are also regular words(lowercase)
+        // Attempt with traversing list
+        for (NSString *name in properNames) {
+            // change name to lowercase
+            NSString *lowercase = [name lowercaseString];
+            
+            // look for name in words
+            NSUInteger indexOfString = [words indexOfObject:lowercase];
+            
+            // word is found so log it
+            if (indexOfString != NSNotFound) {
+                NSLog(@"%@: %@", name, words[indexOfString]);
+            }
+        }
+        
         // Display count for `properNames` and `words`
         NSLog(@"list count: names = %lu, words = %lu\n", [properNames count], [words count]);
     }
