@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-// First Iteration:
+// First Iteration
+// 2nd Iteration: add helper functions
 
 // Finds common proper names that are also regular words; words present in the proper names list that are also present(lowercase) in the regular words list using the built-in dictionary system files 'propernames' and 'words'.
 
-NSArray *getWordsArrayFromFilepath(NSString *path) {
+NSString *stringFromFilePath(NSString *path) {
+    NSString *fileString = [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: NULL];
+    return fileString;
+    //return [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: NULL];
+}
+
+NSArray *wordsArrayFromFilepath(NSString *path) {
     
     // Get one string from file
-    //NSString *fileString = getStringFromFilePath(path);
-    NSString *fileString = [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: NULL];
+    NSString *fileString = stringFromFilePath(path);
     
     // Create array of words
     NSArray *words = [fileString componentsSeparatedByString: @"\n"];
@@ -25,19 +31,21 @@ NSArray *getWordsArrayFromFilepath(NSString *path) {
     return words;
 }
 
-NSString *getStringFromFilePath(NSString *path) {
-    NSString *fileString = [NSString stringWithContentsOfFile: path encoding: NSUTF8StringEncoding error: NULL];
-    return fileString;
-}
-
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSArray *properNames = getWordsArrayFromFilepath(@"/usr/share/dict/propernames");
+        // file path variables
+        NSString *properNamesPath = @"/usr/share/dict/propernames";
+        NSString *wordsFilePath = @"/usr/share/dict/words";
         
-        NSArray *words = getWordsArrayFromFilepath(@"/usr/share/dict/words");
+        // proper names list
+        NSArray *properNames = wordsArrayFromFilepath(properNamesPath);
         
-        NSLog(@"list count: names = %lu, words = %lu\n", [properNames count], [words count]); //properNames);
+        // words list
+        NSArray *words = wordsArrayFromFilepath(wordsFilePath);
+        
+        // Display count for `properNames` and `words`
+        NSLog(@"list count: names = %lu, words = %lu\n", [properNames count], [words count]);
     }
     return 0;
 }
