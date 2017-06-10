@@ -10,39 +10,45 @@
 
 @implementation BNRStockHolding
 
-// getters
--(float)purchaseSharePrice {
-    return _purchaseSharePrice;
-}
-
--(float)currentSharePrice {
-    return _currentSharePrice;
-}
-
--(int)numberOfShares {
-    return _numberOfShares;
-}
-
-// setters
--(void)setPurchaseSharePrice:(float)price {
-    _purchaseSharePrice = price;
-}
-
--(void)setCurrentSharePrice:(float)price {
-    _currentSharePrice = price;
-}
-
--(void)setNumberOfShares:(int)count {
-    _numberOfShares = count;
-}
+//// getters - provided by the compiler
+//-(float)purchaseSharePrice {
+//    return _purchaseSharePrice;
+//}
+//
+//-(float)currentSharePrice {
+//    return _currentSharePrice;
+//}
+//
+//-(int)numberOfShares {
+//    return _numberOfShares;
+//}
+//
+//// setters - provider by the compiler
+//-(void)setPurchaseSharePrice:(float)price {
+//    _purchaseSharePrice = price;
+//}
+//
+//-(void)setCurrentSharePrice:(float)price {
+//    _currentSharePrice = price;
+//}
+//
+//-(void)setNumberOfShares:(int)count {
+//    _numberOfShares = count;
+//}
 
 // other methods
 -(float)costInDollars {
-    return [self purchaseSharePrice] * [self numberOfShares];
+    // Shorthand 'dot' notation for calling accessors
+    return self.purchaseSharePrice * self.numberOfShares;
+    //return [self purchaseSharePrice] * [self numberOfShares];
 }
 
 -(float)valueInDollars {
-    return [self currentSharePrice] * [self numberOfShares];
+    // Shorthand 'dot' notation for calling accessors
+    return self.currentSharePrice * self.numberOfShares;
+    //return [self currentSharePrice] * [self numberOfShares];
 }
+
+
 
 @end
