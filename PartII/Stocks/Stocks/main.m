@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
         [ba setPurchaseSharePrice:190.07];
         [ba setCurrentSharePrice:189.94];
         
-        // add to array
+        // add stocks to array
         [stocks addObject:aapl];
         [stocks addObject:tsla];
         [stocks addObject:ba];
