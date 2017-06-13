@@ -25,6 +25,8 @@ const double secondsPerYear = 31557600.0;
 
 // override a method from superclass
 -(float)bodyMassIndex {
-    return 19.0;
+    // accessing the superclass
+    float normalBMI = [super bodyMassIndex];
+    return normalBMI * 0.9;
 }
 @end
