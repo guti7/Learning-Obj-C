@@ -22,6 +22,7 @@
 @property (nonatomic) float purchaseSharePrice;
 @property (nonatomic) float currentSharePrice;
 @property (nonatomic) int numberOfShares;
+@property (nonatomic) NSString *symbol; // readonly?
 
 /// Property attributes:
 /// Properties are either `atomic` or `nonatomic` and their difference is related to their behavior in a multithreading environment. Use `atomic` to help prevent corruption of data in a multithreading environment. It does not necessarily mean that the code will be safe.

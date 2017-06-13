@@ -27,22 +27,26 @@ int main(int argc, const char * argv[]) {
         aapl.numberOfShares = 100;
         aapl.purchaseSharePrice = 155.13;
         aapl.currentSharePrice = 148.35;
+        aapl.symbol = @"aapl";
         
         BNRStockHolding *tsla = [[BNRStockHolding alloc] init];
         tsla.numberOfShares = 250;
         tsla.purchaseSharePrice = 373.09;
         tsla.currentSharePrice = 355.56;
+        tsla.symbol = @"tsla";
         
         BNRStockHolding *ba = [[BNRStockHolding alloc] init];
         ba.numberOfShares = 40; // 88;
         ba.purchaseSharePrice = 2.30; // 190.07;
         ba.currentSharePrice = 4.50; // 189.94;
+        ba.symbol = @"ba";
         
         ForeignStockHolding *foreign = [[ForeignStockHolding alloc] init];
         foreign.numberOfShares = 40;
         foreign.purchaseSharePrice = 2.30;
         foreign.currentSharePrice = 4.50;
         foreign.conversionRate = 0.94;
+        foreign.symbol = @"foreign";
         
         
         // add stocks to array
@@ -52,11 +56,6 @@ int main(int argc, const char * argv[]) {
         [stocks addObject:ba];
         [stocks addObject:foreign];
         
-        // log to console
-        NSLog(@"Your current stocks' values in dollars:\n");
-        for (BNRStockHolding *stock in stocks) {
-            NSLog(@"%.2f\n", [stock valueInDollars]);
-        }
         
         // Create Stock Holding porfolio
         Portfolio *masterPortfolio = [[Portfolio alloc] init];
@@ -65,6 +64,11 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"Portfolio: %@", masterPortfolio);
         
+        // log to console
+        NSLog(@"Your current stocks in dollars:\n");
+        for (BNRStockHolding *stock in stocks) {
+            NSLog(@"%-8@ $%10.2f\n", [stock symbol], [stock valueInDollars]);
+        }
     }
     return 0;
 }
