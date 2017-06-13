@@ -35,4 +35,9 @@
     }
     return sum;
 }
+
+// Override description
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<Portfolio's value: $%.2f>", self.totalValue];
+}
 @end
