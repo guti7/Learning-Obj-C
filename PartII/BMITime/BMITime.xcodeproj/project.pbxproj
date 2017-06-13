@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC26DEBE1EF07F090014B7A5 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = CC26DEBD1EF07F090014B7A5 /* Asset.m */; };
 		CC81E7E41EEE011F003A7F20 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = CC81E7E31EEE011F003A7F20 /* Employee.m */; };
 		CCE59A9D1EEB92780067C736 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE59A9C1EEB92780067C736 /* main.m */; };
 		CCE59AA51EEB92F00067C736 /* BNRPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE59AA41EEB92F00067C736 /* BNRPerson.m */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC26DEBC1EF07F090014B7A5 /* Asset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
+		CC26DEBD1EF07F090014B7A5 /* Asset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		CC81E7E21EEE011F003A7F20 /* Employee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
 		CC81E7E31EEE011F003A7F20 /* Employee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		CCE59A991EEB92780067C736 /* BMITime */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BMITime; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +69,8 @@
 				CCE59AA31EEB92F00067C736 /* BNRPerson.h */,
 				CCE59AA41EEB92F00067C736 /* BNRPerson.m */,
 				CC81E7E21EEE011F003A7F20 /* Employee.h */,
+				CC26DEBC1EF07F090014B7A5 /* Asset.h */,
+				CC26DEBD1EF07F090014B7A5 /* Asset.m */,
 				CC81E7E31EEE011F003A7F20 /* Employee.m */,
 				CCE59A9C1EEB92780067C736 /* main.m */,
 			);
@@ -130,6 +135,7 @@
 			files = (
 				CC81E7E41EEE011F003A7F20 /* Employee.m in Sources */,
 				CCE59A9D1EEB92780067C736 /* main.m in Sources */,
+				CC26DEBE1EF07F090014B7A5 /* Asset.m in Sources */,
 				CCE59AA51EEB92F00067C736 /* BNRPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
