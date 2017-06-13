@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC190F831EEF87B200916379 /* ForeignStockHolding.m in Sources */ = {isa = PBXBuildFile; fileRef = CC190F821EEF87B200916379 /* ForeignStockHolding.m */; };
 		CCE59AB61EEBD5EF0067C736 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE59AB51EEBD5EF0067C736 /* main.m */; };
 		CCE59ABE1EEBD6500067C736 /* BNRStockHolding.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE59ABD1EEBD6500067C736 /* BNRStockHolding.m */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC190F811EEF87B200916379 /* ForeignStockHolding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForeignStockHolding.h; sourceTree = "<group>"; };
+		CC190F821EEF87B200916379 /* ForeignStockHolding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForeignStockHolding.m; sourceTree = "<group>"; };
 		CCE59AB21EEBD5EF0067C736 /* Stocks */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Stocks; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE59AB51EEBD5EF0067C736 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CCE59ABC1EEBD6500067C736 /* BNRStockHolding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRStockHolding.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 			children = (
 				CCE59AB51EEBD5EF0067C736 /* main.m */,
 				CCE59ABC1EEBD6500067C736 /* BNRStockHolding.h */,
+				CC190F811EEF87B200916379 /* ForeignStockHolding.h */,
+				CC190F821EEF87B200916379 /* ForeignStockHolding.m */,
 				CCE59ABD1EEBD6500067C736 /* BNRStockHolding.m */,
 			);
 			path = Stocks;
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC190F831EEF87B200916379 /* ForeignStockHolding.m in Sources */,
 				CCE59AB61EEBD5EF0067C736 /* main.m in Sources */,
 				CCE59ABE1EEBD6500067C736 /* BNRStockHolding.m in Sources */,
 			);
@@ -151,6 +157,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -204,6 +212,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -265,6 +275,7 @@
 				CCE59ABB1EEBD5EF0067C736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
