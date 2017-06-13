@@ -41,7 +41,8 @@ int main(int argc, const char * argv[]) {
         
         // Log some properties
         NSLog(@"silo weights %d kg., and is %.2f meters tall.", silo.weightInKilos, silo.heightInMeters);
-        NSLog(@"Employee %u hired on %@", silo.employeeID, silo.hireDate);
+        //NSLog(@"Employee %u hired on %@", silo.employeeID, silo.hireDate);
+        NSLog(@"%@ hired on %@", silo, silo.hireDate);
         
         float bmi = silo.bodyMassIndex;
         double years = silo.yearsOfEmployment;

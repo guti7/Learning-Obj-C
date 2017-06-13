@@ -23,10 +23,15 @@ const double secondsPerYear = 31557600.0;
     }
 }
 
-// override a method from superclass
+// Override a method from superclass
 -(float)bodyMassIndex {
     // accessing the superclass
     float normalBMI = [super bodyMassIndex];
     return normalBMI * 0.9;
+}
+
+// Override `description` for `Employee`
+-(NSString *)description {
+    return [NSString stringWithFormat:@"<Employee %d>", self.employeeID];
 }
 @end
