@@ -12,7 +12,7 @@
 
 const double secondsPerYear = 31557600.0;
 
-- (double)yearsOfEmployment {
+-(double)yearsOfEmployment {
     if (self.hireDate) { // `hireDate` is non-nil
         // NSTimeInterval
         NSDate *now = [NSDate date];
@@ -21,5 +21,10 @@ const double secondsPerYear = 31557600.0;
     } else {
         return 0;
     }
+}
+
+// override a method from superclass
+-(float)bodyMassIndex {
+    return 19.0;
 }
 @end
