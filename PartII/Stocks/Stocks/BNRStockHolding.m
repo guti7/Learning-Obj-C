@@ -49,6 +49,4 @@
     //return [self currentSharePrice] * [self numberOfShares];
 }
 
-
-
 @end

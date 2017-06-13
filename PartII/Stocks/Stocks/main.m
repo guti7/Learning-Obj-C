@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 //#import "BNRStockHolding.h"
 #import "ForeignStockHolding.h"
+#import "Portfolio.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -58,6 +59,11 @@ int main(int argc, const char * argv[]) {
         }
         
         // Create Stock Holding porfolio
+        Portfolio *masterPortfolio = [[Portfolio alloc] init];
+        
+        masterPortfolio.holdings = stocks;
+        
+        NSLog(@"Portfolio: %@", masterPortfolio);
         
     }
     return 0;
