@@ -56,6 +56,9 @@ int main(int argc, const char * argv[]) {
         for (BNRStockHolding *stock in stocks) {
             NSLog(@"%.2f\n", [stock valueInDollars]);
         }
+        
+        // Create Stock Holding porfolio
+        
     }
     return 0;
 }
