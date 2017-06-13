@@ -16,6 +16,8 @@
 
 - (float)valueInDollars {
     return super.valueInDollars * self.conversionRate;
+    
+    
 }
 
 @end
