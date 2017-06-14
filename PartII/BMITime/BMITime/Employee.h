@@ -19,14 +19,14 @@
 
 // Instance properties
 @property (nonatomic) unsigned int employeeID;
-@property (nonatomic) unsigned int officialAlarmCode;
+//@property (nonatomic) unsigned int officialAlarmCode;
 @property (nonatomic) NSDate *hireDate;
 @property (nonatomic, copy) NSArray *assets; // LImit the access to implementer
 
 // Methods
 - (double)yearsOfEmployment;
 
-// Assets manipulation
+// Asset manipulation
 - (void)addAsset:(Asset *)asset;
 - (BOOL)removeAsset:(Asset *)asset;
 - (unsigned int)valueOfAssets;

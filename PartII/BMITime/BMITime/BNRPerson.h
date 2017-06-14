@@ -16,9 +16,9 @@
 
 // BNRPerson has methods to read an set its instance variables
 - (float)heightInMeters;
-- (void) setHeightInMeters:(float)height;
-- (int) weightInKilos;
--(void)setWeightInKilos:(int)weight;
+- (void)setHeightInMeters:(float)height;
+- (int)weightInKilos;
+- (void)setWeightInKilos:(int)weight;
 
 // BNRPerson has a method that calculates the Body Mass Index
 -(float)bodyMassIndex;

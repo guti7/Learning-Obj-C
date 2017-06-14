@@ -66,10 +66,11 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"Employees: %@", employees);
         
+/******************************************************************************/
         
         
 //        NSLog(@"Giving up ownership of one employee:");
-//        [employees removeObjectAtIndex:5];
+//        [employees removeObjectAtIndex:5];  // override `description` and `dealloc`
         
         
 //        NSLog(@"Giving up ownership of array.");

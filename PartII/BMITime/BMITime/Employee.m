@@ -9,6 +9,20 @@
 #import "Employee.h"
 #import "Asset.h" // Compiler needs to know a lot more about this class, use #import instead of @class.
 
+/// The class header is where a class advertises its properties and methods so that other objects will know how to interact with it.
+/// In contrast, a class 'extension' is a set of declarations that is private. Ony the class or instances of the class are able to use the properties, instance varibles, or methods declared in a class extension.
+
+// A Class Extension
+@interface Employee ()
+
+@property (nonatomic) unsigned int officeAlarmCode;
+
+/* Effects:
+ 1) Objets that are not instances of `Employee` can no longer see properties declared in a class extension.
+ 2) Makes the header declaration more simple for other developers trying to use it. The less uncessary information to read the better.
+*/
+@end
+
 @implementation Employee
 
 const double secondsPerYear = 31557600.0;
