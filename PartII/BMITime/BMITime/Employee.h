@@ -28,6 +28,7 @@
 
 // Assets manipulation
 - (void)addAsset:(Asset *)asset;
+- (BOOL)removeAsset:(Asset *)asset;
 - (unsigned int)valueOfAssets;
 
 @end

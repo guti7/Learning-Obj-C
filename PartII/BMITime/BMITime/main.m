@@ -51,13 +51,29 @@ int main(int argc, const char * argv[]) {
             [randomEmployee addAsset:asset];
         }
         
+        // Test `removeAsset:`
         NSLog(@"Employees: %@", employees);
         
-        NSLog(@"Giving up ownership of one employee:");
-        [employees removeObjectAtIndex:5];
+        Employee *employee =  employees[1];
+        NSLog(@"%@\n Assets: %@", employee, employee.assets);
+        Asset *currentAsset = employee.assets[0];
         
-        NSLog(@"Giving up ownership of array.");
-        employees = nil;
+        BOOL removedAsset = [employee removeAsset:currentAsset];
+        
+        NSString *removedSuccess = removedAsset ? @"True" : @"False";
+        
+        NSLog(@"Remove Asset: %@ -> %@", currentAsset.label, removedSuccess);
+        
+        NSLog(@"Employees: %@", employees);
+        
+        
+        
+//        NSLog(@"Giving up ownership of one employee:");
+//        [employees removeObjectAtIndex:5];
+        
+        
+//        NSLog(@"Giving up ownership of array.");
+//        employees = nil;
         
         /// As objects become unnecessary, they are being deallocated. When unnecessary objects do not get deallocated, you are said to have a 'memory leak'. A memory leak causes more and more objects to linger unnecessarily, which will cause your application to run low on memory.
         
@@ -96,8 +112,6 @@ int main(int argc, const char * argv[]) {
 //        float bmi = silo.bodyMassIndex;
 //        double years = silo.yearsOfEmployment;
 //        NSLog(@"BMI of %.2f, has worked with us for %.2f years.", bmi, years);
-        
-        
     }
     return 0;
 }

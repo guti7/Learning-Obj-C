@@ -33,6 +33,21 @@ const double secondsPerYear = 31557600.0;
     [_assets addObject:asset];
 }
 
+- (BOOL)removeAsset:(Asset *)asset {
+    if (!_assets) { // asset array is empty
+        return false;
+    }
+    
+    // look for Asset in list if found return true else false
+    for (Asset *currentAsset in _assets) {
+        if (currentAsset.label == asset.label) {
+            [_assets removeObject:currentAsset]; // is removing by index better? how?
+            return true;
+        }
+    }
+    return false; // not found
+}
+
 - (unsigned int)valueOfAssets {
     // Sum up the resale value of the assets
     unsigned int sum = 0;
@@ -67,7 +82,7 @@ const double secondsPerYear = 31557600.0;
 }
 
 // Override `dealloc`
-- (void)dealloc {
-    NSLog(@"deallocating %@", self);
-}
+//- (void)dealloc {
+//    //NSLog(@"deallocating %@", self);
+//}
 @end

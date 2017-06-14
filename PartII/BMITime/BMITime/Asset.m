@@ -11,9 +11,9 @@
 @implementation Asset
 
 // Override `dealloc`
-- (void)dealloc {
-    NSLog(@"deallocating %@", self); // will send message [self description]
-}
+//- (void)dealloc {
+//    NSLog(@"deallocating %@", self); // will send message [self description]
+//}
 
 // Override `description`
 - (NSString *)description {
