@@ -12,11 +12,6 @@
 
 @interface Employee : BNRPerson
 
-// Instance variables
-{
-    NSMutableArray *_assets; // behind the scenes implementation for assets, ability to add or remove `Asset` objects
-}
-
 // Instance properties
 @property (nonatomic) unsigned int employeeID;
 //@property (nonatomic) unsigned int officialAlarmCode;

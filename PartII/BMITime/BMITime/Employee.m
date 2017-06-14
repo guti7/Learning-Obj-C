@@ -15,6 +15,11 @@
 // A Class Extension
 @interface Employee ()
 
+// Instance variables
+{
+    NSMutableArray *_assets; // behind the scenes implementation for assets, ability to add or remove `Asset` objects
+}
+
 @property (nonatomic) unsigned int officeAlarmCode;
 
 /* Effects:
