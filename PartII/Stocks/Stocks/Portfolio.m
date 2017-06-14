@@ -8,6 +8,15 @@
 
 #import "Portfolio.h"
 
+// Class extension
+@interface Portfolio ()
+
+{
+    NSMutableArray *_holdings;
+}
+
+@end
+
 
 @implementation Portfolio
 
@@ -28,6 +37,22 @@
     [_holdings addObject:holding];
 }
 
+- (BOOL)removeStockHolding:(BNRStockHolding *)holding {
+    if (!_holdings) {
+        return false;
+    }
+    
+    // look for stock in holdings
+    for (BNRStockHolding *currentStock in _holdings) {
+        if (currentStock.symbol == holding.symbol) {
+            [_holdings removeObject:currentStock];
+            return true;
+        }
+    }
+    return false;
+    
+}
+
 - (float)totalValue {
     float sum = 0.0;
     for (BNRStockHolding *holding in _holdings) {
@@ -38,6 +63,7 @@
 
 // Override description
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<Portfolio's value: $%.2f>", self.totalValue];
+    return [NSString stringWithFormat:@"<Total value: $%.2f>", self.totalValue];
 }
+
 @end

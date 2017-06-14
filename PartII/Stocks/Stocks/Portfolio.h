@@ -12,13 +12,10 @@
 
 @interface Portfolio : NSObject
 
-{
-    NSMutableArray *_holdings;
-}
-
 @property (nonatomic, copy) NSArray *holdings;
 
 - (float)totalValue;
 - (void)addStockHolding:(BNRStockHolding *)holding;
+- (BOOL)removeStockHolding:(BNRStockHolding *)holding;
 
 @end
