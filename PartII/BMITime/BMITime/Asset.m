@@ -7,6 +7,7 @@
 //
 
 #import "Asset.h"
+//#import "Employee.h"
 
 @implementation Asset
 
@@ -17,7 +18,13 @@
 
 // Override `description`
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: $%u>", self.label, self.resaleValue];
+    
+    // Extend to display holder info
+    if (self.holder) {
+        return [NSString stringWithFormat: @"<%@: $%d, assigned to %@>", self.label, self.resaleValue, self.holder];
+    } else {
+        return [NSString stringWithFormat:@"<%@: $%u unassigned>", self.label, self.resaleValue];
+    }
 }
 
 @end
