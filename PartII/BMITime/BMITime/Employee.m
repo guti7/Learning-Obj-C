@@ -50,6 +50,7 @@ const double secondsPerYear = 31557600.0;
     }
     
     [_assets addObject:asset];
+    asset.holder = self;
 }
 
 - (BOOL)removeAsset:(Asset *)asset {

@@ -14,6 +14,6 @@
 
 @property (nonatomic, copy) NSString *label;
 @property (nonatomic) unsigned int resaleValue;
-@property (nonatomic) Employee *holder;
+@property (nonatomic, weak) Employee *holder;
 
 @end

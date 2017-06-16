@@ -114,5 +114,6 @@ int main(int argc, const char * argv[]) {
 //        double years = silo.yearsOfEmployment;
 //        NSLog(@"BMI of %.2f, has worked with us for %.2f years.", bmi, years);
     }
+    sleep(100);
     return 0;
 }
