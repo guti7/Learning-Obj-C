@@ -18,6 +18,10 @@ int main(int argc, const char * argv[]) {
         // Create an array of `Employee` objects
         NSMutableArray *employees = [[NSMutableArray alloc] init];
         
+        // Create a dictionary of executives
+        NSMutableDictionary *executives = [[NSMutableDictionary alloc] init];
+        
+        
         for (int i = 0; i < 10; i++) {
             // Create an instance of `Employee`
             Employee *employee = [[Employee alloc] init];
@@ -29,6 +33,13 @@ int main(int argc, const char * argv[]) {
             
             // Put the employee in the employees array
             [employees addObject:employee];
+            
+            // Is this the first Employee?
+            if (i == 0) {
+                [executives setObject:employee forKey:@"CEO"];
+            } else if (i == 1) { // second Employee
+                [executives setObject: employee forKey: @"CTO"];
+            }
         }
         
         // All Assets available
@@ -64,6 +75,13 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"allAssets: %@", allAssets);
         
+        // Print out the entire dictionary
+        NSLog(@"executives: %@", executives);
+        
+        // Print out the CEO's information
+        NSLog(@"CEO: %@", executives[@"CEO"]);
+        
+        NSLog(@"\n");
         NSLog(@"Giving up ownership of arrays.");
         
 //        allAssets = nil;

@@ -98,7 +98,7 @@ const double secondsPerYear = 31557600.0;
 // Override `description` for `Employee`(`NSObject`)
 - (NSString *)description {
     //return [NSString stringWithFormat:@"<Employee %d>", self.employeeID];
-    return [NSString stringWithFormat:@"<Employee %u: %u in assets>", self.employeeID, self.valueOfAssets];
+    return [NSString stringWithFormat:@"<Employee %u: $%u in assets>", self.employeeID, self.valueOfAssets];
 }
 
 // Override `dealloc`
