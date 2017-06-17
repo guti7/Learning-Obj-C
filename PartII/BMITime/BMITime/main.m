@@ -31,6 +31,9 @@ int main(int argc, const char * argv[]) {
             [employees addObject:employee];
         }
         
+        // All Assets available
+        NSMutableArray *allAssets = [[NSMutableArray alloc] init];
+        
         // Create 10 assets
         for (int i = 0; i < 10; i++) {
             // Create an asset
@@ -49,32 +52,39 @@ int main(int argc, const char * argv[]) {
             
             // Assign the asset to the employee
             [randomEmployee addAsset:asset];
+            
+            // Catalog assets
+            [allAssets addObject:asset];
         }
         
+        NSLog(@"Employees: %@", employees);
+        
+        NSLog(@"Giving up ownership of one employee:");
+        [employees removeObjectAtIndex:5];  // override `description` and `dealloc`
+        
+        NSLog(@"allAssets: %@", allAssets);
+        
+        NSLog(@"Giving up ownership of arrays.");
+        
+//        allAssets = nil;
+//        employees = nil;
+        
+        
         // Test `removeAsset:`
-        NSLog(@"Employees: %@", employees);
-        
-        Employee *employee =  employees[1];
-        NSLog(@"%@\n Assets: %@", employee, employee.assets);
-        Asset *currentAsset = employee.assets[0];
-        
-        BOOL removedAsset = [employee removeAsset:currentAsset];
-        
-        NSString *removedSuccess = removedAsset ? @"True" : @"False";
-        
-        NSLog(@"Remove Asset: %@ -> %@", currentAsset.label, removedSuccess);
-        
-        NSLog(@"Employees: %@", employees);
+//        Employee *employee =  employees[1];
+//        NSLog(@"%@\n Assets: %@", employee, employee.assets);
+//        Asset *currentAsset = employee.assets[0];
+//
+//        BOOL removedAsset = [employee removeAsset:currentAsset];
+//
+//        NSString *removedSuccess = removedAsset ? @"True" : @"False";
+//
+//        NSLog(@"Remove Asset: %@ -> %@", currentAsset.label, removedSuccess);
+//
+//        NSLog(@"Employees: %@", employees);
         
 /******************************************************************************/
         
-        
-//        NSLog(@"Giving up ownership of one employee:");
-//        [employees removeObjectAtIndex:5];  // override `description` and `dealloc`
-        
-        
-//        NSLog(@"Giving up ownership of array.");
-//        employees = nil;
         
         /// As objects become unnecessary, they are being deallocated. When unnecessary objects do not get deallocated, you are said to have a 'memory leak'. A memory leak causes more and more objects to linger unnecessarily, which will cause your application to run low on memory.
         

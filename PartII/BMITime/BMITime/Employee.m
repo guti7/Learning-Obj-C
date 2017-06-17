@@ -102,7 +102,7 @@ const double secondsPerYear = 31557600.0;
 }
 
 // Override `dealloc`
-//- (void)dealloc {
-//    //NSLog(@"deallocating %@", self);
-//}
+- (void)dealloc {
+    NSLog(@"deallocating %@", self);
+}
 @end
