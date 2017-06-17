@@ -69,6 +69,10 @@ int main(int argc, const char * argv[]) {
 //        allAssets = nil;
 //        employees = nil;
         
+        /// When an object that a weak reference points to is deallocated, the pointer is 'zeroed', or set to `nil`. So the assets that were previously assigned to Employee 5's will not be deallocated, and their `holder` variables will be *automatically* set to nil.
+        
+        /// A strong reference will keep the object it points to from being deallocated. A weak reference will not. Instance variables and properties that are marked as weak are pointing at objects that might go away.
+        
         
         // Test `removeAsset:`
 //        Employee *employee =  employees[1];
