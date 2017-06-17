@@ -16,7 +16,7 @@
 @property (nonatomic) unsigned int employeeID;
 //@property (nonatomic) unsigned int officialAlarmCode;
 @property (nonatomic) NSDate *hireDate;
-@property (nonatomic, copy) NSArray *assets; // LImit the access to implementer
+@property (nonatomic, copy) NSSet *assets; // LImit the access to implementer
 
 // Methods
 - (double)yearsOfEmployment;

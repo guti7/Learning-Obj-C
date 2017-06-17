@@ -17,7 +17,7 @@
 
 // Instance variables
 {
-    NSMutableArray *_assets; // behind the scenes implementation for assets, ability to add or remove `Asset` objects
+    NSMutableSet *_assets; // behind the scenes implementation for assets, ability to add or remove `Asset` objects
 }
 
 @property (nonatomic) unsigned int officeAlarmCode;
@@ -33,7 +33,7 @@
 const double secondsPerYear = 31557600.0;
 
 // Accessors for `_assets` properties
-- (void)setAssets:(NSArray *)assets {
+- (void)setAssets:(NSArray *)assets { // TODO: What about the type of this one?
     _assets = [assets mutableCopy];
 }
 
@@ -46,7 +46,7 @@ const double secondsPerYear = 31557600.0;
     // check for nil - lazyly initialize the assets array
     if (!_assets) {
         // Create the array
-        _assets = [[NSMutableArray alloc] init];
+        _assets = [[NSMutableSet alloc] init];
     }
     
     [_assets addObject:asset];
