@@ -103,14 +103,17 @@ int main(int argc, const char * argv[]) {
         
         // Need a new array to hold the filtered asset collection
         NSArray *filteredAssets = [allAssets filteredArrayUsingPredicate:predicate600Plus];
-        NSLog(@"Filtered assets by holder's total value greater than $600: %@", filteredAssets);
+        
+        // Sort the filtered asset list by increasing holder's total value
+        NSSortDescriptor *totalValueForHolder = [NSSortDescriptor sortDescriptorWithKey:@"holder.valueOfAssets" ascending:YES];
+        NSArray *sortedFilteredAssets = [filteredAssets sortedArrayUsingDescriptors:@[totalValueForHolder]];
+        
+        
+        NSLog(@"Filtered assets by holder's total value greater than $600: %@", sortedFilteredAssets);
         
         NSLog(@"\n");
         NSLog(@"Giving up ownership of arrays.");
         
-        
-//        allAssets = nil;
-//        employees = nil;
         
         /// When an object that a weak reference points to is deallocated, the pointer is 'zeroed', or set to `nil`. So the assets that were previously assigned to Employee 5's will not be deallocated, and their `holder` variables will be *automatically* set to nil.
         
@@ -135,7 +138,6 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"Employees: %@", employees);
         
 /******************************************************************************/
-        
         
         /// As objects become unnecessary, they are being deallocated. When unnecessary objects do not get deallocated, you are said to have a 'memory leak'. A memory leak causes more and more objects to linger unnecessarily, which will cause your application to run low on memory.
         
