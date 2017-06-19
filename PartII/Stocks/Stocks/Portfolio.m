@@ -70,6 +70,14 @@
     return sortedByCurrentValue;
 }
 
+- (NSArray *)topThreeHoldings {
+    NSArray *sorted = [self descendingValueHoldings];
+    
+    // Assume there is at least three holdings - first attempt
+    NSRange range = NSMakeRange(0, 3);
+    return [sorted subarrayWithRange:range];
+}
+
 // Override description
 - (NSString *)description {
     return [NSString stringWithFormat:@"<Total value: $%.2f>", self.totalValue];

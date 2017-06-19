@@ -76,6 +76,14 @@ int main(int argc, const char * argv[]) {
         for (BNRStockHolding *stock in descendingHoldings) {
             NSLog(@"%-8@ $%10.2f\n", [stock symbol], [stock valueInDollars]);
         }
+        
+        // Top three holdings
+        NSArray *topThreeHoldings = [masterPortfolio topThreeHoldings];
+        NSLog(@"Holdings in decreasing current value:");
+        for (BNRStockHolding *stock in topThreeHoldings) {
+            NSLog(@"%-8@ $%10.2f\n", [stock symbol], [stock valueInDollars]);
+        }
+        
     }
     return 0;
 }

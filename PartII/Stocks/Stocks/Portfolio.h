@@ -18,5 +18,6 @@
 - (void)addStockHolding:(BNRStockHolding *)holding;
 - (BOOL)removeStockHolding:(BNRStockHolding *)holding;
 - (NSArray *)descendingValueHoldings;
+- (NSArray *)topThreeHoldings;
 
 @end
