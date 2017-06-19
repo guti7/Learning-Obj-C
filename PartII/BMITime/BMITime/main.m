@@ -110,41 +110,6 @@ int main(int argc, const char * argv[]) {
         
         /// As objects become unnecessary, they are being deallocated. When unnecessary objects do not get deallocated, you are said to have a 'memory leak'. A memory leak causes more and more objects to linger unnecessarily, which will cause your application to run low on memory.
         
-        
-        // Create an instance of BNRPerson
-//        BNRPerson *julioCesarChavez = [[BNRPerson alloc] init];
-//
-//        int lightWelterWeight = 63;  // kilograms
-//
-//        // Set the height and weigth
-//        [julioCesarChavez setWeightInKilos:lightWelterWeight];
-//        [julioCesarChavez setHeightInMeters:1.71];
-//
-//        // Log the instance variables
-//        float height = [julioCesarChavez heightInMeters];
-//        int weight = [julioCesarChavez weightInKilos];
-//        NSLog(@"Julio is %.2f meters tall and weighs %d kilograms.", height, weight);
-//
-//        // Calculate BMI
-//        float bmi = [julioCesarChavez bodyMassIndex];
-//        NSLog(@"Julio has a BMI of %f", bmi);
-        
-        /// Modify to create an `Employee`
-//        Employee *silo = [[Employee alloc] init];
-//
-//        silo.weightInKilos = 80;
-//        silo.heightInMeters = 1.74;
-//        silo.employeeID = 777;
-//        silo.hireDate = [NSDate dateWithNaturalLanguageString:@"Aug 13th, 2016"];
-//
-//        // Log some properties
-//        NSLog(@"silo weights %d kg., and is %.2f meters tall.", silo.weightInKilos, silo.heightInMeters);
-//        //NSLog(@"Employee %u hired on %@", silo.employeeID, silo.hireDate);
-//        NSLog(@"%@ hired on %@", silo, silo.hireDate);
-//
-//        float bmi = silo.bodyMassIndex;
-//        double years = silo.yearsOfEmployment;
-//        NSLog(@"BMI of %.2f, has worked with us for %.2f years.", bmi, years);
     }
     sleep(100);
     return 0;
