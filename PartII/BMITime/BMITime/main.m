@@ -57,6 +57,7 @@ int main(int argc, const char * argv[]) {
             
             // Get a random number between 0 - 9 inclusive
             NSUInteger randomIndex = random() % [employees count];
+            NSLog(@"random index: %lu", randomIndex);
             
             // Find random employee
             Employee *randomEmployee = [employees objectAtIndex:randomIndex];
@@ -79,10 +80,12 @@ int main(int argc, const char * argv[]) {
         NSLog(@"executives: %@", executives);
         
         // Print out the CEO's information
-        NSLog(@"CEO: %@", executives[@"CEO"]);
+        NSLog(@"CEO: %@", executives[@"CEO"]); // [executives objectForKey:@"CEO"];
+        //executives = nil;
         
         NSLog(@"\n");
         NSLog(@"Giving up ownership of arrays.");
+        
         
 //        allAssets = nil;
 //        employees = nil;
@@ -91,6 +94,10 @@ int main(int argc, const char * argv[]) {
         
         /// A strong reference will keep the object it points to from being deallocated. A weak reference will not. Instance variables and properties that are marked as weak are pointing at objects that might go away.
         
+        /// The keys in a dictionary are unique. If you try to add a second object under an existing key, the first key-value pair gets replaced.
+        
+        /// Immutability:
+        /// Using an immutable collection conserves memory and improves performance because that collection never needs to be copied. It is unnecessary. Ex: `NSDate` and `NSNumber` are immutable but do not have mutable subclasses. You create a new object each time.
         
         // Test `removeAsset:`
 //        Employee *employee =  employees[1];
