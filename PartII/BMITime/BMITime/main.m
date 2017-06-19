@@ -69,6 +69,14 @@ int main(int argc, const char * argv[]) {
             [allAssets addObject:asset];
         }
         
+        // Sort employees by value of assets, and then by employee id
+        // Create descriptors
+        NSSortDescriptor *valueOfAssets = [NSSortDescriptor sortDescriptorWithKey:@"valueOfAssets" ascending:YES];
+        NSSortDescriptor *employeeID = [NSSortDescriptor sortDescriptorWithKey:@"employeeID" ascending:YES];
+        
+        // Sort employees array using descriptors
+        [employees sortUsingDescriptors: @[valueOfAssets, employeeID]];
+        
         NSLog(@"Employees: %@", employees);
         
         NSLog(@"Giving up ownership of one employee:");
