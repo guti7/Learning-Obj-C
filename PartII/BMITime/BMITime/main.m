@@ -99,10 +99,11 @@ int main(int argc, const char * argv[]) {
         
         // Filter the asset collection using the predicate
         [allAssets filterUsingPredicate:predicate600Plus];
-        NSLog(@"Filtered Assets: %@", allAssets);
+        //NSLog(@"Filtered Assets: %@", allAssets);
         
-//        // Need a new array to hold the filtered asset collection
-//        NSArray *filteredAssets = [allAssets]
+        // Need a new array to hold the filtered asset collection
+        NSArray *filteredAssets = [allAssets filteredArrayUsingPredicate:predicate600Plus];
+        NSLog(@"Filtered assets by holder's total value greater than $600: %@", filteredAssets);
         
         NSLog(@"\n");
         NSLog(@"Giving up ownership of arrays.");
