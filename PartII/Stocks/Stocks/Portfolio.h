@@ -17,5 +17,6 @@
 - (float)totalValue;
 - (void)addStockHolding:(BNRStockHolding *)holding;
 - (BOOL)removeStockHolding:(BNRStockHolding *)holding;
+- (NSArray *)descendingValueHoldings;
 
 @end

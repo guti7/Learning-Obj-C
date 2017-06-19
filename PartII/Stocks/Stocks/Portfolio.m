@@ -61,6 +61,15 @@
     return sum;
 }
 
+- (NSArray *)descendingValueHoldings {
+    // Sort the holdings into a new array
+    NSSortDescriptor *currentValueDesc = [NSSortDescriptor sortDescriptorWithKey:@"valueInDollars" ascending:NO];
+    NSArray *sortedByCurrentValue = [_holdings sortedArrayUsingDescriptors:@[currentValueDesc]];
+    
+    // Get top three from array
+    return sortedByCurrentValue;
+}
+
 // Override description
 - (NSString *)description {
     return [NSString stringWithFormat:@"<Total value: $%.2f>", self.totalValue];

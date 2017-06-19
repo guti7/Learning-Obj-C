@@ -66,13 +66,13 @@
 		CCE59AB41EEBD5EF0067C736 /* Stocks */ = {
 			isa = PBXGroup;
 			children = (
-				CCE59AB51EEBD5EF0067C736 /* main.m */,
-				CC0EFB7D1EF0A5830035BBA5 /* Portfolio.h */,
-				CC0EFB7E1EF0A5830035BBA5 /* Portfolio.m */,
 				CCE59ABC1EEBD6500067C736 /* BNRStockHolding.h */,
+				CCE59ABD1EEBD6500067C736 /* BNRStockHolding.m */,
 				CC190F811EEF87B200916379 /* ForeignStockHolding.h */,
 				CC190F821EEF87B200916379 /* ForeignStockHolding.m */,
-				CCE59ABD1EEBD6500067C736 /* BNRStockHolding.m */,
+				CC0EFB7D1EF0A5830035BBA5 /* Portfolio.h */,
+				CC0EFB7E1EF0A5830035BBA5 /* Portfolio.m */,
+				CCE59AB51EEBD5EF0067C736 /* main.m */,
 			);
 			path = Stocks;
 			sourceTree = "<group>";
