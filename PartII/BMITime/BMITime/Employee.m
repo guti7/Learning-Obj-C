@@ -69,7 +69,7 @@ const double secondsPerYear = 31557600.0;
 }
 
 - (unsigned int)valueOfAssets {
-    // Sum up the resale value of the assets
+    // Sum up the resale value of all the assets
     unsigned int sum = 0;
     for (Asset *asset in _assets) {
         sum += [asset resaleValue];

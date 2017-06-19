@@ -57,7 +57,7 @@ int main(int argc, const char * argv[]) {
             
             // Get a random number between 0 - 9 inclusive
             NSUInteger randomIndex = random() % [employees count];
-            NSLog(@"random index: %lu", randomIndex);
+            //NSLog(@"random index: %lu", randomIndex);
             
             // Find random employee
             Employee *randomEmployee = [employees objectAtIndex:randomIndex];
@@ -90,6 +90,19 @@ int main(int argc, const char * argv[]) {
         // Print out the CEO's information
         NSLog(@"CEO: %@", executives[@"CEO"]); // [executives objectForKey:@"CEO"];
         //executives = nil;
+        
+        // Reclaim all assets given to employees who currently hold assets worth more than $600 total.
+        // Use a predicate to filter the array of assets from employee's that have a total worth of $600 or more in assets.
+        
+        // Create the predicate - logical statament that is either true or false - for the filter.
+        NSPredicate *predicate600Plus = [NSPredicate predicateWithFormat: @"holder.valueOfAssets > 600"];
+        
+        // Filter the asset collection using the predicate
+        [allAssets filterUsingPredicate:predicate600Plus];
+        NSLog(@"Filtered Assets: %@", allAssets);
+        
+//        // Need a new array to hold the filtered asset collection
+//        NSArray *filteredAssets = [allAssets]
         
         NSLog(@"\n");
         NSLog(@"Giving up ownership of arrays.");
