@@ -49,4 +49,9 @@
     //return [self currentSharePrice] * [self numberOfShares];
 }
 
+// Override `description`
+- (NSString *)description {
+    return [NSString stringWithFormat: @"<Stock %@: $%.2f>", self.symbol, self.valueInDollars];
+}
+
 @end
