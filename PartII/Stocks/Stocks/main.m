@@ -69,7 +69,7 @@ int main(int argc, const char * argv[]) {
 //        for (BNRStockHolding *stock in stocks) {
 //            NSLog(@"%-8@ $ %7.2f\n", [stock symbol], [stock valueInDollars]);
 //        }
-        NSLog(@"Holdings in dollars: %@", stocks);
+        NSLog(@"Holdings in dollars: %@", [masterPortfolio holdings]);
         
         // Test holdings in descending total value.
         NSArray *descendingHoldings = [masterPortfolio descendingValueHoldings];
@@ -78,6 +78,9 @@ int main(int argc, const char * argv[]) {
         // Top three holdings
         NSArray *topThreeHoldings = [masterPortfolio topThreeHoldings];
         NSLog(@"Top three holdings: %@", topThreeHoldings);
+        
+        // Sort by symbol
+        NSLog(@"Portfolio sorted by symbol ascending: %@", [masterPortfolio sortBySymbolAscending:YES]);
         
     }
     return 0;

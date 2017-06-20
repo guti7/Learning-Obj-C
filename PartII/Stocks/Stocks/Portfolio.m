@@ -78,6 +78,14 @@
     return [sorted subarrayWithRange:range];
 }
 
+- (NSArray *)sortBySymbolAscending:(BOOL)ascending {
+    // Sort holdings by symbol
+    NSSortDescriptor *sortingBySymbol = [NSSortDescriptor sortDescriptorWithKey:@"symbol" ascending:ascending];
+    
+    NSArray *sortedBySymbol = [_holdings sortedArrayUsingDescriptors:@[sortingBySymbol]];
+    return sortedBySymbol;
+}
+
 // Override description
 - (NSString *)description {
     return [NSString stringWithFormat:@"<Total value: $%.2f>", self.totalValue];

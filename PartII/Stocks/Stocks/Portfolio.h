@@ -19,5 +19,7 @@
 - (BOOL)removeStockHolding:(BNRStockHolding *)holding;
 - (NSArray *)descendingValueHoldings;
 - (NSArray *)topThreeHoldings;
+//- (NSArray *)topNumberOfHoldings(int); Generalize the top list by proving a parameter
+- (NSArray *)sortBySymbolAscending:(BOOL)ascending;
 
 @end
