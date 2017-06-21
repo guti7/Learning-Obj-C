@@ -15,6 +15,8 @@ int main(int argc, const char * argv[]) {
             [str appendString:@"Guti is ready!\n"];
         }
         
+        // Write a string to a file
+        
         // Declare a pointer to an `NSError` object, but do no instantiate it.
         // The `NSError` instance will only be created if there is, in fact, an error.
         NSError *error;
@@ -30,6 +32,17 @@ int main(int argc, const char * argv[]) {
             NSLog(@"failure: %@, %@, %@, %@, %@, %@", [error localizedFailureReason], [error domain], [error localizedRecoverySuggestion], [error superclass], [error localizedRecoveryOptions], [error userInfo]);
         }
         NSLog(@"%p: %@, %p", &error, error, error);
+        
+        
+        // Read a file with `NSString`
+        NSString *stringFromFile = [[NSString alloc] initWithContentsOfFile:@"/etc/resolv.conf" encoding:NSASCIIStringEncoding error:&error];
+        
+        if(!stringFromFile) { // if string is not initilized (`stringFromFile` is `nil`)
+            NSLog(@"Read failed: %@", [error localizedDescription]);
+        } else {
+            NSLog(@"resolv.conf looks like this: %@", stringFromFile);
+        }
+        
     }
     return 0;
 }
