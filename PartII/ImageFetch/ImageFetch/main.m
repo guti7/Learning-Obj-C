@@ -43,10 +43,24 @@ int main(int argc, const char * argv[]) {
             
             NSData *readData = [NSData dataWithContentsOfFile:@"/tmp/google.png"];
             NSLog(@"The file read from the disk has %lu bytes.", (unsigned long)[readData length]);
+            
+            // Get the user's desktop directories
+            NSArray *desktops = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES);
+            
+            NSLog(@"Desktops: %@", desktops);
+            
+            // There is only one desktop
+            NSString *desktopPath = desktops[0];
+            NSLog(@"User's desktop path: %@", desktopPath);
         }];
         [dataTask resume];
         [runLoop run];
         // TODO: STOP loop
+        
+        // Get the user's desktop directories
+        NSArray *desktops = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES);
+        
+        NSLog(@"Desktops: %@", desktops);
     }
     
     return 0;
