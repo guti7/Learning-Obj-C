@@ -40,9 +40,13 @@ int main(int argc, const char * argv[]) {
             
             //completed = true;
             NSLog(@"Success!");
+            
+            NSData *readData = [NSData dataWithContentsOfFile:@"/tmp/google.png"];
+            NSLog(@"The file read from the disk has %lu bytes.", (unsigned long)[readData length]);
         }];
         [dataTask resume];
         [runLoop run];
+        // TODO: STOP loop
     }
     
     return 0;
