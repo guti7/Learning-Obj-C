@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
         NSError *error;
         
         // Pass the `NSError` pointer by reference
-        BOOL success = [str writeToFile:@"/tmpcool.txt" atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        BOOL success = [str writeToFile:@"/tmpcool.txt" atomically:YES encoding:NSUTF8StringEncoding error:&error]; // Passing the address(&error) of pointer(error) - passing the address of another address(which may become the address of a pointer variable
         // Test the returned `BOOL`, and query the `NSError` if the write failed
         if (success) {
             NSLog(@"done writing /tmp/cool.txt");
