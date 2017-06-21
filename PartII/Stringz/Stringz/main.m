@@ -20,13 +20,16 @@ int main(int argc, const char * argv[]) {
         NSError *error;
         
         // Pass the `NSError` pointer by reference
-        BOOL success = [str writeToFile:@"/tmp/cool.txt" atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        BOOL success = [str writeToFile:@"/tmpcool.txt" atomically:YES encoding:NSUTF8StringEncoding error:&error];
         // Test the returned `BOOL`, and query the `NSError` if the write failed
         if (success) {
             NSLog(@"done writing /tmp/cool.txt");
         } else {
             NSLog(@"writing /tmp/cool.txt failed: %@", [error localizedDescription]);
+            // Other methods for `NSError`
+            NSLog(@"failure: %@, %@, %@, %@, %@, %@", [error localizedFailureReason], [error domain], [error localizedRecoverySuggestion], [error superclass], [error localizedRecoveryOptions], [error userInfo]);
         }
+        NSLog(@"%p: %@, %p", &error, error, error);
     }
     return 0;
 }
