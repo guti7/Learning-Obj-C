@@ -15,6 +15,9 @@ int main(int argc, const char * argv[]) {
         // Create instance of `Logger`
         Logger *logger = [[Logger alloc] init];
         
+        // Register `logger` to receive a notification when the time zone changes
+        [[NSNotificationCenter defaultCenter] addObserver:logger selector:@selector(zoneChange:) name:NSSystemTimeZoneDidChangeNotification object:nil];
+        
         // Create a Connection
         NSURL *url = [NSURL URLWithString:@"http://www.gutenberg.org/cache/epub/205/pg205.txt"];
         
@@ -32,6 +35,8 @@ int main(int argc, const char * argv[]) {
         // Never returns. The run loop is waiting for something to happen.
         
         /// When sending one callback to one object, Apple uses target-action. When sending an assortment of callbacks to one object, Apple uses a helper object(e.g. delegates and data sources) with a protocol. Then you have the need to send a callback to multiple different objects (Notifications).
+        
+        /// Many objects in your program might want to know that a certain event has happened. Each individual item registers as an 'observer' within a notification center. When such event happens,the 'notification' will posted to the center, and the center will trigger it to all the relevant observers.
         
     }
     return 0;

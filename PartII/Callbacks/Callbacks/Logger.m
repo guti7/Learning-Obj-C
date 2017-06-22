@@ -8,6 +8,11 @@
 
 #import "Logger.h"
 
+// Class Extension of `Logger`
+@interface Logger ()
+- (void)zoneChange:(NSNotification *)note;
+@end
+
 @implementation Logger
 
 - (NSString *)lastTimeString {
@@ -26,6 +31,11 @@
     NSDate *now = [NSDate date];
     [self setLastTime:now];
     NSLog(@"Just set time to %@", self.lastTimeString);
+}
+
+// Called when a `NSSystemTimeZoneDidChangeNotification` is received
+- (void)zoneChange:(NSNotification *)note {
+    NSLog(@"The system time zone has changed");
 }
 
 // Called each time a chunk of data arrives
