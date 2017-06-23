@@ -27,8 +27,18 @@ int main(int argc, const char * argv[]) {
         // Declare a block variable
         void (^devowelizer)(id, NSUInteger, BOOL *); // just like a function declaration - the type is 'a block that takes an object, an integer, and a BOOL pointer, and returns nothing.'
         
+        
         // Compose block of the declared type and assign it to the new variable
         devowelizer = ^(id string, NSUInteger i, BOOL *stop) {
+            
+            NSRange yRange = [string rangeOfString:@"Y" options:NSCaseInsensitiveSearch];
+            
+            // Locate a 'y'
+            if (yRange.location != NSNotFound) {
+                *stop = YES; // stop further iterations
+                return; // exit current iteration
+            }
+            
             NSMutableString *newString = [NSMutableString stringWithString:string];
             
             // Iterate over the array of vowels, replacing occurrances of each with an empty string
