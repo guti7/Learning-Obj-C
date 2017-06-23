@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+// Block syntax can be made clearer by using a `typedef`.
+typedef void (^ArrayEnumerationBlock)(id, NSUInteger, BOOL *); // defining a new type
+
 /*
  * Iterates through an array of strings, remove the vowels from each string, and store the "devowelized" strings in a new array.
  */
@@ -25,7 +28,9 @@ int main(int argc, const char * argv[]) {
         
         /// Compose a block that makes a copy of a given string, removes the vowels from the copied string, and then adds this string to `devowelizedStrings`
         // Declare a block variable
-        void (^devowelizer)(id, NSUInteger, BOOL *); // just like a function declaration - the type is 'a block that takes an object, an integer, and a BOOL pointer, and returns nothing.'
+        //void (^devowelizer)(id, NSUInteger, BOOL *);
+        // just like a function declaration - the type is 'a block that takes an object, an integer, and a BOOL pointer, and returns nothing.'
+        ArrayEnumerationBlock devowelizer;
         
         
         // Compose block of the declared type and assign it to the new variable
