@@ -16,7 +16,15 @@ int main(int argc, const char * argv[]) {
         Logger *logger = [[Logger alloc] init];
         
         // Register `logger` to receive a notification when the time zone changes
-        [[NSNotificationCenter defaultCenter] addObserver:logger selector:@selector(zoneChange:) name:NSSystemTimeZoneDidChangeNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:logger
+//                                                 selector:@selector(zoneChange:) name:NSSystemTimeZoneDidChangeNotification
+//                                                   object:nil];
+        
+        // Use a block with `NSNotificationCenter`
+        id timeChangeObserver = [[NSNotificationCenter defaultCenter] addObserverForName:NSSystemTimeZoneDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            NSLog(@"The system time zone has changed!");
+            NSLog(@"%@", note);
+        }];
         
         // Create a Connection
         NSURL *url = [NSURL URLWithString:@"http://www.gutenberg.org/cache/epub/205/pg205.txt"];
@@ -24,6 +32,7 @@ int main(int argc, const char * argv[]) {
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         __unused NSURLConnection *fetchConn = [[NSURLConnection alloc] initWithRequest:request delegate:logger startImmediately:YES];
+        
         
         /// Timers use a target-action mechanism. A timer is created with a a time interval, a target, and an action. After the interval has elapsed, the timer sends the action message to its target.
         __unused NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target: logger selector: @selector(updateLastTime:) userInfo: nil repeats: YES]; // flag variable as purpusefully unused
@@ -38,6 +47,9 @@ int main(int argc, const char * argv[]) {
         
         /// Many objects in your program might want to know that a certain event has happened. Each individual item registers as an 'observer' within a notification center. When such event happens,the 'notification' will posted to the center, and the center will trigger it to all the relevant observers.
         
+        /// To unregister observations, you pass the object returned by this method to `removeObserver:`. You must invoke `removeObserver:` or `removeObserver:name:object:` before any object specified by `addObserverForName:object:queue:usingBlock:` is deallocated.
+        [[NSNotificationCenter defaultCenter] removeObserver:timeChangeObserver];
     }
+    
     return 0;
 }

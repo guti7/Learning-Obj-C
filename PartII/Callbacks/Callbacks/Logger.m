@@ -35,7 +35,7 @@
 
 // Called when a `NSSystemTimeZoneDidChangeNotification` is received
 - (void)zoneChange:(NSNotification *)note {
-    NSLog(@"The system time zone has changed");
+    NSLog(@"The system time zone has changed!");
 }
 
 // Called each time a chunk of data arrives
