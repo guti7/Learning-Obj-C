@@ -27,15 +27,9 @@ int main(int argc, const char * argv[]) {
         NSArray *vowels = @[@"a", @"e", @"i", @"o", @"u"];
         
         /// Compose a block that makes a copy of a given string, removes the vowels from the copied string, and then adds this string to `devowelizedStrings`
-        // Declare a block variable
-        //void (^devowelizer)(id, NSUInteger, BOOL *);
-        // just like a function declaration - the type is 'a block that takes an object, an integer, and a BOOL pointer, and returns nothing.'
-        ArrayEnumerationBlock devowelizer;
         
-        
-        // Compose block of the declared type and assign it to the new variable
-        devowelizer = ^(id string, NSUInteger i, BOOL *stop) {
-            
+        // Pass in an anonymous block as the argument
+        [originalStrings enumerateObjectsUsingBlock:^(id string, NSUInteger i, BOOL *stop) {
             NSRange yRange = [string rangeOfString:@"Y" options:NSCaseInsensitiveSearch];
             
             // Locate a 'y'
@@ -53,11 +47,43 @@ int main(int argc, const char * argv[]) {
             }
             
             [devowelizedStrings addObject:newString];
-        }; // End of block assignment
+        }];
+        
+        NSLog(@"Strings with no vowels: %@", devowelizedStrings);
+        
+ /********************************************************************************/
+        // Using blocks
+        // Declare a block variable
+        //void (^devowelizer)(id, NSUInteger, BOOL *);
+        // just like a function declaration - the type is 'a block that takes an object, an integer, and a BOOL pointer, and returns nothing.'
+        //ArrayEnumerationBlock devowelizer;
+        
+        
+        // Compose block of the declared type and assign it to the new variable
+        //        devowelizer = ^(id string, NSUInteger i, BOOL *stop) {
+        //
+        //            NSRange yRange = [string rangeOfString:@"Y" options:NSCaseInsensitiveSearch];
+        //
+        //            // Locate a 'y'
+        //            if (yRange.location != NSNotFound) {
+        //                *stop = YES; // stop further iterations
+        //                return; // exit current iteration
+        //            }
+        //
+        //            NSMutableString *newString = [NSMutableString stringWithString:string];
+        //
+        //            // Iterate over the array of vowels, replacing occurrances of each with an empty string
+        //            for (NSString *s in vowels) {
+        //                NSRange fullRange = NSMakeRange(0, [newString length]);
+        //                [newString replaceOccurrencesOfString:s withString:@"" options:NSCaseInsensitiveSearch range:fullRange];
+        //            }
+        //
+        //            [devowelizedStrings addObject:newString];
+        //        }; // End of block assignment
         
         // Send `enumerateObjectUsingBlock:` message to `orirginalStrings` to iterate over the array with the `devowelizer` block
-        [originalStrings enumerateObjectsUsingBlock:devowelizer];
-        NSLog(@"Strings with no vowels: %@", devowelizedStrings);
+        //        [originalStrings enumerateObjectsUsingBlock:devowelizer];
+        
     }
     return 0;
 }
