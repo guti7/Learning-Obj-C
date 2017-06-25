@@ -25,6 +25,17 @@ NSString *DocPath() {
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // Load an existing dataset  or create a new one
+    NSArray *plist = [NSArray arrayWithContentsOfFile:DocPath()];
+    if (plist) {
+        // the dataset exists; copy it into tasks
+        self.tasks = [plist mutableCopy];
+    } else {
+        // dataset does not exists, create an empty array
+        self.tasks = [NSMutableArray array];
+    }
+    
     // Create and configure the `UIWindow` instance
     // a `CGRect` is a struct with an origin (x, y) and a size (width, height)
     CGRect windowBounds = [[UIScreen mainScreen] bounds];
@@ -43,8 +54,6 @@ NSString *DocPath() {
     
     // Make the `AppDelegate` the table view's `dataSource`
     self.taskTable.dataSource = self;
-    // Create an empty array to get the task list started
-    self.tasks = [NSMutableArray array];
     
     // Create and cofigure the `UITextField instance
     self.taskField = [[UITextField alloc] initWithFrame:fieldFrame];
