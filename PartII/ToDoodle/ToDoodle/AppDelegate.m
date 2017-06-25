@@ -49,6 +49,11 @@
     self.insertButton.frame = buttonFrame;
     [self.insertButton setTitle:@"Insert" forState:UIControlStateNormal];
     
+    // Set the target and action for the button
+    // The button's target is the object to which the mesage should be sent.
+    // The button's action is the message that you want sent when the button is tapped.
+    [self.insertButton addTarget:self action:@selector(addTask:) forControlEvents:UIControlEventTouchUpInside];
+    
     // Add UI elements to the window
 //    [self.window addSubview:self.taskTable];
 //    [self.window addSubview:self.taskField];
@@ -92,5 +97,25 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - Actions
+- (void)addTask:(id)sender {
+    
+    // Get the task
+    NSString *taskText = [self.taskField text];
+    
+    // Quit here if `taskField` is empty
+    if ([taskText length] == 0) {
+        return;
+    }
+    
+    // Log text to console
+    NSLog(@"Task entered: %@", taskText);
+    
+    // Clear out the text field
+    [self.taskField setText:@""];
+    
+    // Dismis the keyboard
+    [self.taskField resignFirstResponder];
+}
 
 @end
