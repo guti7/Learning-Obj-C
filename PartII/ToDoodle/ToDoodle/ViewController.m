@@ -8,6 +8,12 @@
 
 #import "ViewController.h"
 
+// Helper function to fetch the path to the to-do data stored on disk
+NSString *DocPath() {
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [pathList[0] stringByAppendingPathComponent:@"data.td"];
+}
+
 @interface ViewController ()
 
 @end
