@@ -22,6 +22,10 @@
     NSLog(@"The root window: %@", self.window);
 //    NSLog(@"The window's root view controller: %@", self.window.rootViewController);
     
+    // Make the `AppDelegate` the table view's `dataSource`
+    self.taskTable.dataSource = self;
+    
+    
     // Create and configure the `UIWindow` instance
     // a `CGRect` is a struct with an origin (x, y) and a size (width, height)
     CGRect windowBounds = [[UIScreen mainScreen] bounds];
@@ -116,6 +120,25 @@
     
     // Dismis the keyboard
     [self.taskField resignFirstResponder];
+}
+
+#pragma mark - Table view management
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // this table only has one section, so the number of rows in it is equal to the number of items in the tasks array
+    return [self.tasks count];
+}
+
+- (UITableViewCell *)tableView:(UITableView)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // This method first checks for an existing cell object that can be reused. If there isn't one, then a new cell is created (Performance enhancer).
+    UITableViewCell *cell = [self.taskTable dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    // Reconfigure the cell based on the model object(tasks array).
+    NSString *taskString = [self.tasks objectAtIndex:indexPath.row];
+    cell.textLabel.text = taskString;
+    
+    // hand the cell back to the table view(the table view calls the table view's data source helper methods)
+    return cell;
+    
 }
 
 @end
