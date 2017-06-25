@@ -20,8 +20,48 @@
     // Override point for customization after application launch.
     NSLog(@"Aplication did finish launching with options: %@", launchOptions);
     NSLog(@"The root window: %@", self.window);
-//    NSLog[@"The root window's window: %@", self.window window];
+//    NSLog(@"The window's root view controller: %@", self.window.rootViewController);
     
+    // Create and configure the `UIWindow` instance
+    // a `CGRect` is a struct with an origin (x, y) and a size (width, height)
+    CGRect windowBounds = [[UIScreen mainScreen] bounds];
+//    UIWindow *mainWindow = [[UIWindow alloc] initWithFrame:windowBounds];
+    
+    // Define the frame rectangles for UI elements
+    // `CGRectMake()` creates a `CGRect` from (x, y, width, height)
+    CGRect tableFrame = CGRectMake(0, 80, windowBounds.size.width, windowBounds.size.height - 100);
+    CGRect fieldFrame = CGRectMake(20, 40, 200, 31);
+    CGRect buttonFrame = CGRectMake(228, 40, 72, 31);
+    
+    // Create and configure the `UITableView` instance
+    self.taskTable = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
+    self.taskTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    // Tell the table view which class to instantiate whenever it needs to create a new cell
+    [self.taskTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    // Create and cofigure the `UITextField instance
+    self.taskField = [[UITextField alloc] initWithFrame:fieldFrame];
+    self.taskField.borderStyle = UITextBorderStyleRoundedRect;
+    self.taskField.placeholder = @"Type a task, tap Insert.";
+    
+    // Create and configure the `UIButton`
+    self.insertButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.insertButton.frame = buttonFrame;
+    [self.insertButton setTitle:@"Insert" forState:UIControlStateNormal];
+    
+    // Add UI elements to the window
+//    [self.window addSubview:self.taskTable];
+//    [self.window addSubview:self.taskField];
+//    [self.window addSubview:self.insertButton];
+    [self.window.rootViewController.view addSubview:self.taskTable];
+    [self.window.rootViewController.view addSubview:self.taskField];
+    [self.window.rootViewController.view addSubview:self.insertButton];
+    
+    // Finalize window and put it on the screen
+//    self.window.backgroundColor = [UIColor blueColor];
+    [self.window makeKeyAndVisible];
+    
+    NSLog(@"Load complete");
     return YES;
 }
 
