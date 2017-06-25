@@ -17,9 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"Root View Controller superclass: %@", [self superclass]);
-    NSLog(@"RC's view: %@", self.view);
-    
 }
 
 - (void)didReceiveMemoryWarning {

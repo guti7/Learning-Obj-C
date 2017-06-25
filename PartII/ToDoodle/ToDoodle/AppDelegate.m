@@ -17,19 +17,10 @@
 #pragma mark - Application delegate callbacks
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    NSLog(@"Aplication did finish launching with options: %@", launchOptions);
-    NSLog(@"The root window: %@", self.window);
-//    NSLog(@"The window's root view controller: %@", self.window.rootViewController);
-    
-    // Make the `AppDelegate` the table view's `dataSource`
-    self.taskTable.dataSource = self;
-    
     
     // Create and configure the `UIWindow` instance
     // a `CGRect` is a struct with an origin (x, y) and a size (width, height)
     CGRect windowBounds = [[UIScreen mainScreen] bounds];
-//    UIWindow *mainWindow = [[UIWindow alloc] initWithFrame:windowBounds];
     
     // Define the frame rectangles for UI elements
     // `CGRectMake()` creates a `CGRect` from (x, y, width, height)
@@ -39,9 +30,14 @@
     
     // Create and configure the `UITableView` instance
     self.taskTable = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
-    self.taskTable.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.taskTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     // Tell the table view which class to instantiate whenever it needs to create a new cell
     [self.taskTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    // Make the `AppDelegate` the table view's `dataSource`
+    self.taskTable.dataSource = self;
+    // Create an empty array to get the task list started
+    self.tasks = [NSMutableArray array];
     
     // Create and cofigure the `UITextField instance
     self.taskField = [[UITextField alloc] initWithFrame:fieldFrame];
@@ -59,9 +55,6 @@
     [self.insertButton addTarget:self action:@selector(addTask:) forControlEvents:UIControlEventTouchUpInside];
     
     // Add UI elements to the window
-//    [self.window addSubview:self.taskTable];
-//    [self.window addSubview:self.taskField];
-//    [self.window addSubview:self.insertButton];
     [self.window.rootViewController.view addSubview:self.taskTable];
     [self.window.rootViewController.view addSubview:self.taskField];
     [self.window.rootViewController.view addSubview:self.insertButton];
@@ -70,10 +63,8 @@
 //    self.window.backgroundColor = [UIColor blueColor];
     [self.window makeKeyAndVisible];
     
-    NSLog(@"Load complete");
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -102,6 +93,7 @@
 }
 
 #pragma mark - Actions
+
 - (void)addTask:(id)sender {
     
     // Get the task
@@ -112,8 +104,11 @@
         return;
     }
     
-    // Log text to console
-    NSLog(@"Task entered: %@", taskText);
+    // Add it to the working array
+    [self.tasks addObject:taskText];
+    
+    // Refresh the table so that the new item shows up
+    [self.taskTable reloadData];
     
     // Clear out the text field
     [self.taskField setText:@""];
@@ -123,12 +118,13 @@
 }
 
 #pragma mark - Table view management
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // this table only has one section, so the number of rows in it is equal to the number of items in the tasks array
     return [self.tasks count];
 }
 
-- (UITableViewCell *)tableView:(UITableView)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // This method first checks for an existing cell object that can be reused. If there isn't one, then a new cell is created (Performance enhancer).
     UITableViewCell *cell = [self.taskTable dequeueReusableCellWithIdentifier:@"Cell"];
     
@@ -138,7 +134,6 @@
     
     // hand the cell back to the table view(the table view calls the table view's data source helper methods)
     return cell;
-    
 }
 
 @end
