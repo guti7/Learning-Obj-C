@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CC6BA7F81F0097BE00107F76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6BA7F71F0097BE00107F76 /* main.m */; };
 		CC6BA8001F00980300107F76 /* Appliance.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6BA7FF1F00980300107F76 /* Appliance.m */; };
+		CCD26C8D1F00D8F800592997 /* OwnedAppliance.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD26C8C1F00D8F800592997 /* OwnedAppliance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		CC6BA7F71F0097BE00107F76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC6BA7FE1F00980300107F76 /* Appliance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Appliance.h; sourceTree = "<group>"; };
 		CC6BA7FF1F00980300107F76 /* Appliance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Appliance.m; sourceTree = "<group>"; };
+		CCD26C8B1F00D8F800592997 /* OwnedAppliance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OwnedAppliance.h; sourceTree = "<group>"; };
+		CCD26C8C1F00D8F800592997 /* OwnedAppliance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OwnedAppliance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				CC6BA7F71F0097BE00107F76 /* main.m */,
+				CCD26C8B1F00D8F800592997 /* OwnedAppliance.h */,
+				CCD26C8C1F00D8F800592997 /* OwnedAppliance.m */,
 				CC6BA7FE1F00980300107F76 /* Appliance.h */,
 				CC6BA7FF1F00980300107F76 /* Appliance.m */,
 			);
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCD26C8D1F00D8F800592997 /* OwnedAppliance.m in Sources */,
 				CC6BA7F81F0097BE00107F76 /* main.m in Sources */,
 				CC6BA8001F00980300107F76 /* Appliance.m in Sources */,
 			);
@@ -265,6 +271,7 @@
 				CC6BA7FD1F0097BE00107F76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
