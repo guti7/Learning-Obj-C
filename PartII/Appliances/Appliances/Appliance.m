@@ -10,7 +10,7 @@
 
 @implementation Appliance
 
-#pragma mark - Override from Superclass
+#pragma mark - Initializers
 
 -(instancetype)initWithProductName:(NSString *)productName {
     // Call the `NSObject` init method
@@ -36,7 +36,13 @@
     return self;
 }
 
+// override super init to use subclass init, with default values.
+- (instancetype)init {
+    return [self initWithProductName:@"Unknown"];
+}
 
+
+# pragma mark - Override methods
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"<%@: %d volts>", self.productName, self.voltage];
