@@ -12,6 +12,7 @@
 
 @property (readonly) NSSet *ownerNames;
 
+// Designated initializer
 - (instancetype)initWithProductName:(NSString *)productName firstOwnerName:(NSString *)ownerName;
 - (void)addOwnerName:(NSString *)name;
 - (void)removeOwnerName:(NSString *)name;

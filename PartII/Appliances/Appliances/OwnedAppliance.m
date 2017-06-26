@@ -32,6 +32,10 @@
     return self;
 }
 
+- (instancetype)initWithProductName:(NSString *)productName {
+    return [self initWithProductName:productName firstOwnerName:nil];
+}
+
 - (void)addOwnerName:(NSString *)name {
     [_ownerNames addObject:name];
 }
@@ -45,7 +49,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@, owned by: %@ : %d V>", self.productName, self.ownerNames, self.voltage];
+    return [NSString stringWithFormat:@"<%@, owned by: %@ : %dV>", self.productName, self.ownerNames, self.voltage];
 }
 
 @end

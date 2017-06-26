@@ -35,6 +35,6 @@
 # pragma mark - Override methods
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %d volts>", self.productName, self.voltage];
+    return [NSString stringWithFormat:@"<%@: %dV>", self.productName, self.voltage];
 }
 @end
