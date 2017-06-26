@@ -9,7 +9,8 @@
 #import "OwnedAppliance.h"
 
 // Private
-@interface OwnedAppliance () {
+@interface OwnedAppliance ()
+{
     NSMutableSet *_ownerNames;
 }
 @end
@@ -29,6 +30,22 @@
     }
     // Return a pointer to the new object
     return self;
+}
+
+- (void)addOwnerName:(NSString *)name {
+    [_ownerNames addObject:name];
+}
+
+- (void)removeOwnerName:(NSString *)name {
+    [_ownerNames removeObject:name];
+}
+
+- (NSSet *)ownerNames {
+    return [_ownerNames copy];
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@, owned by: %@ : %d V>", self.productName, self.ownerNames, self.voltage];
 }
 
 @end
