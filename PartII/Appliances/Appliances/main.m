@@ -12,13 +12,18 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
+        // Use defined basic init
+        Appliance *fridge = [[Appliance alloc] initWithProductName:@"Refrigerator"];
+        NSLog(@"appliance: %@", fridge);
+        
+        // Using super init inherited from `NSObject`
         Appliance *appliance = [[Appliance alloc] init];
         // Without an implemention of `init`, the class uses the inherited `init` from `NSObject`, which 'zeroes' all instance variables specific to the subclass.
-        NSLog(@"one appliance: %@", appliance);
+        NSLog(@"another appliance: %@", appliance);
         
         appliance.productName = @"Stove";
-        appliance.voltage = 120;
-        NSLog(@"one appliance: %@", appliance);
+        appliance.voltage = 150;
+        NSLog(@"another appliance: %@", appliance);
     }
     return 0;
 }
