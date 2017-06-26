@@ -16,8 +16,6 @@
     // Call the `NSObject` init method
     self = [super init];
     
-    NSLog(@"init with product name super: %@", self);
-    
     // Check for non-nil
     if (self) {
         
@@ -29,8 +27,6 @@
         //_voltage = 120;
         [self setVoltage:120]; // setter method for property
     }
-    
-    NSLog(@"init with product name set: %@", self);
     
     // Return a pointer to the new object
     return self;
