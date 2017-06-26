@@ -19,7 +19,6 @@ int main(int argc, const char * argv[]) {
         // Using super init inherited from `NSObject`
         Appliance *appliance = [[Appliance alloc] init];
         // Without an implemention of `init`, the class uses the inherited `init` from `NSObject`, which 'zeroes' all instance variables specific to the subclass.
-        //NSLog(@"another appliance: %@", appliance);
         
 //        appliance.productName = @"Stove";
         [appliance setProductName:@"Stove"];

@@ -13,19 +13,13 @@
 #pragma mark - Initializers
 
 -(instancetype)initWithProductName:(NSString *)productName {
-    // Call the `NSObject` init method
-    self = [super init];
     
-    // Check for non-nil
-    if (self) {
+    // Check for non-nil from super init
+    if (self = [super init]) {
         
-        // Set the product name
-        //_productName = [productName copy];
-        [self setProductName:[productName copy]];
-        
-        // Default starting voltage value
-        //_voltage = 120;
-        [self setVoltage:120]; // setter method for property
+        // Initialize instance variables
+        _productName = [productName copy];
+        _voltage = 120;
     }
     
     // Return a pointer to the new object
