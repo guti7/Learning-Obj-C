@@ -14,8 +14,8 @@ int main(int argc, const char * argv[]) {
         
         Appliance *appliance = [[Appliance alloc] init];
         // Without an implemention of `init`, the class uses the inherited `init` from `NSObject`, which 'zeroes' all instance variables specific to the subclass.
-        
         NSLog(@"one appliance: %@", appliance);
+        
         appliance.productName = @"Stove";
         appliance.voltage = 120;
         NSLog(@"one appliance: %@", appliance);
