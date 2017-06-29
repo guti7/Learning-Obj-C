@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Logger.h"
+#import "Observer.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -36,6 +37,12 @@ int main(int argc, const char * argv[]) {
         
         /// Timers use a target-action mechanism. A timer is created with a a time interval, a target, and an action. After the interval has elapsed, the timer sends the action message to its target.
         __unused NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 2.0 target: logger selector: @selector(updateLastTime:) userInfo: nil repeats: YES]; // flag variable as purpusefully unused
+        
+        // Create instance of `Observer` and make it an observer of the logger's `lastTime` property
+        __unused Observer *observer = [[Observer alloc] init];
+        
+        // Notify both the new value and old value whenever it changes
+        [logger addObserver:observer forKeyPath:@"lastTime" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
         
         /// The run loop
         /// In an event-driven program, there needs to be an object that does the sitting and waiting for events. In macOS and iOS, this object is an instance of `NSRunLoop`. When an event happens, the run lop causes a 'callback' to occur.
