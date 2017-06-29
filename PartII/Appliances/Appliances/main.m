@@ -23,7 +23,11 @@ int main(int argc, const char * argv[]) {
         NSLog(@"default appliance: %@", defaultAppliance);
         [defaultAppliance setProductName:@"Stove"];
         [defaultAppliance setVoltage:150];
+        // KVC
+        [defaultAppliance setValue:@"Electric Stove" forKey:@"productName"];
+        [defaultAppliance setValue:[NSNumber numberWithInt:149] forKey:@"voltage"];
         NSLog(@"Instance properties set for default appliance: %@", defaultAppliance);
+        NSLog(@"Default appliance name: %@", [defaultAppliance valueForKey:@"productName"]);
         
         // Create an owned appliance
         OwnedAppliance *firstOwnedAppliance = [[OwnedAppliance alloc] initWithProductName:@"Dishwasher" firstOwnerName:@"Guti"];
