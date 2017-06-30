@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSDate+DateConvenience.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        NSDate *date = [NSDate createDateWithYear:2020 month:8 day:10];
+        NSLog(@"current date: %@", date);
+        
     }
     return 0;
 }

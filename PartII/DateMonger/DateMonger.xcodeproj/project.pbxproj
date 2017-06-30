@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CCFE2E121F06C43E00CED09D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE2E111F06C43E00CED09D /* main.m */; };
+		CCFE2E1A1F06C4F700CED09D /* NSDate+DateConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE2E191F06C4F700CED09D /* NSDate+DateConvenience.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		CCFE2E0E1F06C43E00CED09D /* DateMonger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DateMonger; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE2E111F06C43E00CED09D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CCFE2E181F06C4F700CED09D /* NSDate+DateConvenience.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateConvenience.h"; sourceTree = "<group>"; };
+		CCFE2E191F06C4F700CED09D /* NSDate+DateConvenience.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateConvenience.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,8 @@
 		CCFE2E101F06C43E00CED09D /* DateMonger */ = {
 			isa = PBXGroup;
 			children = (
+				CCFE2E181F06C4F700CED09D /* NSDate+DateConvenience.h */,
+				CCFE2E191F06C4F700CED09D /* NSDate+DateConvenience.m */,
 				CCFE2E111F06C43E00CED09D /* main.m */,
 			);
 			path = DateMonger;
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFE2E1A1F06C4F700CED09D /* NSDate+DateConvenience.m in Sources */,
 				CCFE2E121F06C43E00CED09D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
