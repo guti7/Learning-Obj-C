@@ -42,6 +42,7 @@ int main(int argc, const char * argv[]) {
         __unused Observer *observer = [[Observer alloc] init];
         
         // Notify both the new value and old value whenever it changes
+        //static int contextKVOLogger;
         [logger addObserver:observer forKeyPath:@"lastTime" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
         
         /// The run loop
