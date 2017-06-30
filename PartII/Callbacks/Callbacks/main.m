@@ -45,6 +45,8 @@ int main(int argc, const char * argv[]) {
         //static int contextKVOLogger;
         [logger addObserver:observer forKeyPath:@"lastTime" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
         
+        [logger addObserver:observer forKeyPath:@"lastTimeString" options:NSKeyValueObservingOptionNew context:nil];
+        
         /// The run loop
         /// In an event-driven program, there needs to be an object that does the sitting and waiting for events. In macOS and iOS, this object is an instance of `NSRunLoop`. When an event happens, the run lop causes a 'callback' to occur.
         

@@ -15,6 +15,10 @@
 
 @implementation Logger
 
++ (NSSet *)keyPathsForValuesAffectingLastTimeString {
+    return [NSSet setWithObject:@"lastTime"];
+}
+
 - (NSString *)lastTimeString {
     static NSDateFormatter *dateFormatter = nil;
     
