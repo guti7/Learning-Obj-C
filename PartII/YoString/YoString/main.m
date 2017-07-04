@@ -7,6 +7,7 @@
 //
 
 // C library headers
+#import <Foundation/Foundation.h>
 #include <stdio.h> // for printf
 #include <stdlib.h> // for malloc/free
 #include <string.h> // for strlen
@@ -59,6 +60,23 @@ int main(int argc, const char * argv[]) {
     
     // For a string literal you don't need to `malloc` and `free` memory. It is considered a constant and its contents cannot be modified.
     //love[0] = 'z';
+    
+    // Converting to and from `NSString`
+    // Convert from C to NSString
+    const char *greeting = "¡Hola!";
+    NSString *greetingNSString = [NSString stringWithCString:greeting encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"Just converted from c string to nsstring: %@", greetingNSString);
+    
+    // Converting from NSString to C
+    // NSString can handle some characers that certain encodings cannot. Check first that the conversion can occur.
+    NSString *hello = @"Bonjour!";
+    const char *bonjour = NULL;
+    if ([hello canBeConvertedToEncoding:NSUTF8StringEncoding]) {
+        bonjour = [hello cStringUsingEncoding:NSUTF8StringEncoding];
+        // The system will eventually free the resulting C string for you. You don't own it.
+        // If you are going to need the C string to live for a long time, copy it into a buffer you have created with `malloc()`.
+    }
     
     return 0;
 }
