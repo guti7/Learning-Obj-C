@@ -38,7 +38,7 @@ int main(int argc, const char * argv[]) {
     free(start);
     start = NULL;
     
-    // Floating point numbers
+    // Floating point numbers - Array??
     float *favorites = malloc(3 * sizeof(float));
     
     favorites[0] = 3.14158;
@@ -51,5 +51,14 @@ int main(int argc, const char * argv[]) {
     
     free(favorites);
     favorites = NULL;
+    
+    // String literals
+    const char *love = "Love"; // `const` enables the compiler to give you a warning before running program.
+    printf("%s has %zu characters at address %p\n", love, strlen(love), love);
+    printf("The third letter is %c\n", love[2]);
+    
+    // For a string literal you don't need to `malloc` and `free` memory. It is considered a constant and its contents cannot be modified.
+    //love[0] = 'z';
+    
     return 0;
 }
