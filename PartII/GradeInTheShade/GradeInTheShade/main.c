@@ -21,14 +21,19 @@ int main(int argc, const char * argv[]) {
     
     // Create an array of floats
     //float *gradeBook = malloc(3 * sizeof(float)); // on the heap.
-    float *gradeBookFrame[3]; // declares buffer as part of the frame(the stack).
-    gradeBookFrame[0] = 60.2;
-    gradeBookFrame[1] = 94.5;
-    gradeBookFrame[2] = 81.1;
+//    float *gradeBookFrame[3]; // declares buffer as part of the frame(the stack).
+//    gradeBookFrame[0] = 60.2;
+//    gradeBookFrame[1] = 94.5;
+//    gradeBookFrame[2] = 81.1;
     //gradeBook[-3] = 23.1;
+    // Array literals
+    float gradeBook[] = {60.2, 94.5, 81.1};
+    
+    
+    
     
     // Calculate the average
-    float average = averageFloats(gradeBookFrame, 3);
+    float average = averageFloats(gradeBook, 3);
     
     // Free the array
 //    free(gradeBook);
