@@ -12,6 +12,19 @@
 #include <stdlib.h> // for malloc/free
 #include <string.h> // for strlen
 
+/*
+ * Counts the space characters (ASCII 0x20) in a C string.
+ */
+int spaceCount(const char *string) {
+    int count = 0;
+    for (int i = 0; i < strlen(string); i++) {
+        if (string[i] == ' ') {
+            count++;
+        }
+    }
+    return count;
+}
+
 int main(int argc, const char * argv[]) {
     char x = 0x21; // use ASCII as literals wrapped in single quotes - '!'
     while (x <= 0x7e) { // '~'
@@ -77,6 +90,10 @@ int main(int argc, const char * argv[]) {
         // The system will eventually free the resulting C string for you. You don't own it.
         // If you are going to need the C string to live for a long time, copy it into a buffer you have created with `malloc()`.
     }
+    
+    // Test `spaceCount`
+    const char *sentence = "He was not in the cab at the time.";
+    printf("\"%s\" has %d spaces.\n", sentence, spaceCount(sentence));
     
     return 0;
 }
