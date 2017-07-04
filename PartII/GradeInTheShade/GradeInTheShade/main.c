@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h> // malloc(), free()
 
-float averageFloats(float *data, int dataCount) {
+float averageFloats(float data[], int dataCount) {
     float sum = 0.0;
     for (int i = 0; i < dataCount; i++) {
         sum += data[i];
@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
 //    gradeBookFrame[2] = 81.1;
     //gradeBook[-3] = 23.1;
     // Array literals
-    float gradeBook[] = {60.2, 94.5, 81.1};
+    float gradeBook[] = {60.2, 94.5, 81.1}; // the new type array[] replaces the use of * (pointer declaration)
     
     
     
